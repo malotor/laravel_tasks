@@ -9,7 +9,19 @@ use App\Task;
 
 use Session;
 
+use App\Libraries\Repositories\TaskRepository as Tasks;
+
 class TasksController extends Controller {
+
+	/**
+     * @var tasks
+     */
+    private $tasks;
+ 
+    public function __construct(Tasks $tasks) {
+ 
+        $this->tasks = $tasks;
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -60,7 +72,9 @@ class TasksController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$task = Task::findOrFail($id);
+ 
+    	return view('tasks.show')->withTask($task);
 	}
 
 	/**
