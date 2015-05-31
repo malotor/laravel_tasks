@@ -1,4 +1,6 @@
-<?php namespace App\Libraries\Repositories;
+<?php 
+
+namespace App\Libraries\Repositories;
  
 use App\Libraries\Repositories\Eloquent\Repository;
  

@@ -51,11 +51,12 @@ interface RepositoryInterface {
      * @param array $columns
      * @return mixed
      */
-    public function findAllBy($field, $value, $columns = array('*'));
+
+    //public function findAllBy($field, $value, $columns = array('*'));
     /**
      * @param $where
      * @param array $columns
      * @return mixed
      */
-    public function findWhere($where, $columns = array('*'));
+    //public function findWhere($where, $columns = array('*'));
 }

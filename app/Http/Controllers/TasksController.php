@@ -30,7 +30,7 @@ class TasksController extends Controller {
 	 */
 	public function index()
 	{
-		$tasks = Task::all();
+		$tasks = $this->tasks->all();
  
     	return view('tasks.index')->withTasks($tasks);
 	}
@@ -58,7 +58,9 @@ class TasksController extends Controller {
 		]);
 		//dd($request->all());
 		$input = $request->all();
-    	Task::create($input);
+    	//Task::create($input);
+    	$this->tasks->create($input);
+
     	Session::flash('flash_message', 'Task successfully added!');
  
     	return redirect()->back();
@@ -72,7 +74,8 @@ class TasksController extends Controller {
 	 */
 	public function show($id)
 	{
-		$task = Task::findOrFail($id);
+		$task = $this->tasks->find($id);
+		//$task = Task::findOrFail($id);
  
     	return view('tasks.show')->withTask($task);
 	}
